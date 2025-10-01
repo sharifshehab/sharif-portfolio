@@ -1,10 +1,8 @@
 import Footer from "@/components/shared/Footer";
 import Navbar from "@/components/shared/Navbar/Navbar";
+import { IChildren } from "@/types";
 import { Toaster } from "sonner";
 
-export interface IChildren {
-    children: React.ReactNode;
-}
 
 const PublicLayout = async ({ children }: IChildren) => {
 
