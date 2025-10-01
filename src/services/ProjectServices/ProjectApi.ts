@@ -1,5 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use server"
-
 import { revalidateTag } from "next/cache"
 import { cookies } from "next/headers"
 
@@ -19,8 +19,30 @@ export const deleteProject = async (id: string) => {
     })
     const data = await res.json()
     if (data.success) {
-        revalidateTag("PRODUCTS")
+        revalidateTag("PROJECTS")
     }
     return data
+}
+
+// add project
+export const addProject = async (formData: any) => {
+    try {
+        const token = (await cookies()).get("accessToken")?.value
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/project/projects`, {
+            method: "POST",
+            headers: {
+                Authorization: `${token}`
+            },
+            body: formData,
+        })
+        const data = await res.json()
+        if (data.success) {
+            revalidateTag("PROJECTS")
+        }
+        return data
+    } catch (error) {
+        console.log(error);
+    }
+
 }
 

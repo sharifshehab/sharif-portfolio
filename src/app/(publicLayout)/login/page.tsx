@@ -1,13 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client"
 
-/* eslint-disable @next/next/no-img-element */
 import { Button } from "@/components/ui/button";
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { ILogin } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
-import Image from "next/image";
+
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Form } from "@/components/ui/form";
 import { toast } from "sonner";

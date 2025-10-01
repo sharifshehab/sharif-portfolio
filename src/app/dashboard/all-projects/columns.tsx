@@ -12,6 +12,9 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { deleteProject, getProjects } from "@/services/ProjectServices/ProjectApi"
+import Link from "next/link"
+import EditProject from "@/components/modules/Projects/EditProject"
+import { useState } from "react"
 // import { revalidateTag } from "next/cache"
 
 // This type is used to define the shape of our data.
@@ -57,14 +60,14 @@ export const columns: ColumnDef<IProject>[] = [
     {
         id: "actions",
         cell: ({ row }) => {
-            const project = row.original
+            const { _id } = row.original
             // console.log("project", project);
 
+            const [open, setOpen] = useState(false);
+
+            // Delete project
             const handleDeleteProject = async () => {
-                await deleteProject(project._id)
-                // if (result.success) {
-                //     await getProjects()
-                // }
+                await deleteProject(_id)
             }
 
             return (
@@ -78,8 +81,11 @@ export const columns: ColumnDef<IProject>[] = [
                     <DropdownMenuContent align="end">
                         <DropdownMenuLabel>Actions</DropdownMenuLabel>
                         <DropdownMenuSeparator />
-                        <DropdownMenuItem>View</DropdownMenuItem>
-                        <DropdownMenuItem>Edit</DropdownMenuItem>
+                        <DropdownMenuItem><Link href={`/dashboard/projects/${_id}`}>View</Link></DropdownMenuItem>
+                        <DropdownMenuItem asChild>
+                            <button onClick={() => setOpen(true)}>Edit</button>
+                        </DropdownMenuItem>
+                        <EditProject open={open} onOpenChange={setOpen} />
                         <DropdownMenuItem onClick={handleDeleteProject}>Delete</DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>

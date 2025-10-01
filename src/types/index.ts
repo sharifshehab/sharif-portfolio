@@ -11,3 +11,17 @@ export interface IUser {
 export interface IChildren {
     children: React.ReactNode;
 }
+
+export interface IProject {
+    name: string;
+    title: string;
+    description: string;
+    thumbnail?: string;
+    technologies: string;
+    features: string;
+    frontEndGithubRepo: string;
+    backEndGithubRepo: string;
+    liveLink: string;
+    // upcomingFeatures?: IUpcomingFeatures[]
+    // projectChallenges?: IProjectChallenges[]
+}

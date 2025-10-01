@@ -1,5 +1,4 @@
-import { IChildren } from "@/app/(publicLayout)/layout";
-
+import { IChildren } from "@/types";
 
 const Container = ({ children }: IChildren) => {
     return (
