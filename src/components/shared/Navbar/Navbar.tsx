@@ -86,7 +86,7 @@ const Navbar = () => {
                                         className={`${accountMenuOpen ? "translate-y-0 opacity-100 z-[1]" : "translate-y-[10px] opacity-0 z-[-1]"} bg-white w-max rounded-md absolute dark:bg-slate-800 top-[45px] right-0 p-[10px] flex flex-col transition-all duration-300 gap-[5px]`}>
                                         <p className="flex items-center gap-[5px] rounded-md p-[8px] pr-[45px] py-[3px] text-[1rem] dark:text-[#abc2d3] dark:hover:bg-slate-900/50 text-gray-600 hover:bg-gray-50">
                                             <FiUser />
-                                            View Profile
+                                            <Link href={"/dashboard/projects"}>Projects</Link>
                                         </p>
 
                                         <div className="mt-3 border-t dark:border-slate-700 border-gray-200 pt-[5px]">

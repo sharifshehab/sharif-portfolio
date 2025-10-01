@@ -1,4 +1,4 @@
-import { getProjects } from "@/services/ProjectServices/ProjectApi";
+import { deleteProject, getProjects } from "@/services/ProjectServices/ProjectApi";
 import { columns } from "./columns";
 import { DataTable } from "./data-table";
 

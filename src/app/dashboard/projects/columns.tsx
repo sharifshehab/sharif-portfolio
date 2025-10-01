@@ -11,6 +11,8 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { deleteProject, getProjects } from "@/services/ProjectServices/ProjectApi"
+// import { revalidateTag } from "next/cache"
 
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
@@ -56,8 +58,14 @@ export const columns: ColumnDef<IProject>[] = [
         id: "actions",
         cell: ({ row }) => {
             const project = row.original
+            // console.log("project", project);
 
-            console.log("project", project);
+            const handleDeleteProject = async () => {
+                await deleteProject(project._id)
+                // if (result.success) {
+                //     await getProjects()
+                // }
+            }
 
             return (
                 <DropdownMenu>
@@ -72,7 +80,7 @@ export const columns: ColumnDef<IProject>[] = [
                         <DropdownMenuSeparator />
                         <DropdownMenuItem>View</DropdownMenuItem>
                         <DropdownMenuItem>Edit</DropdownMenuItem>
-                        <DropdownMenuItem>Delete</DropdownMenuItem>
+                        <DropdownMenuItem onClick={handleDeleteProject}>Delete</DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
             )
