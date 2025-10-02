@@ -54,6 +54,10 @@ export const columns: ColumnDef<IProject>[] = [
         header: "Created On",
     },
     {
+        accessorKey: "",
+        header: "Action",
+    },
+    {
         id: "actions",
         cell: ({ row }) => {
             const { _id } = row.original

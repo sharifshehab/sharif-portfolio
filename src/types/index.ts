@@ -25,3 +25,10 @@ export interface IProject {
     // upcomingFeatures?: IUpcomingFeatures[]
     // projectChallenges?: IProjectChallenges[]
 }
+
+export interface IBlog {
+    title: string;
+    description: string;
+    thumbnail?: string;
+    tags: string
+}

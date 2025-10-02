@@ -1,6 +1,7 @@
+import { DataTable } from "@/components/ui/data-table";
 import { columns } from "./columns";
-import { DataTable } from "./data-table";
 import { getBlogs } from "@/services/BlogServices/BlogApi";
+import AddBlog from "@/components/modules/Blogs/AddBlog";
 
 
 const AllProjects = async () => {
@@ -10,7 +11,7 @@ const AllProjects = async () => {
 
     return (
         <div className="container mx-auto py-10">
-            {/* <AddProject /> */}
+            <AddBlog />
             <DataTable columns={columns} data={data} />
         </div>
     );

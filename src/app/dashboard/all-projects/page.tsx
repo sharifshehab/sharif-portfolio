@@ -1,7 +1,7 @@
 import { getProjects } from "@/services/ProjectServices/ProjectApi";
 import { columns } from "./columns";
-import { DataTable } from "./data-table";
 import AddProject from "@/components/modules/Projects/AddProject";
+import { DataTable } from "@/components/ui/data-table";
 
 
 const AllProjects = async () => {
