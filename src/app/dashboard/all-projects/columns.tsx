@@ -11,7 +11,7 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { deleteProject, getProjects } from "@/services/ProjectServices/ProjectApi"
+import { deleteProject } from "@/services/ProjectServices/ProjectApi"
 import Link from "next/link"
 
 // This type is used to define the shape of our data.
@@ -28,15 +28,14 @@ export interface IProjectChallenges {
 export interface IProject {
     _id: string;
     name: string;
-    subTitle: string;
+    title: string;
     description: string;
     thumbnail: string;
-    technology: string[];
+    technologies: string[];
     features: string[];
-    githubRepo: string;
+    frontEndGithubRepo: string;
+    backEndGithubRepo: string;
     liveLink: string;
-    upcomingFeatures?: IUpcomingFeatures[]
-    projectChallenges?: IProjectChallenges[]
     createdAt: string;
     updatedAt: string;
 }
@@ -58,9 +57,6 @@ export const columns: ColumnDef<IProject>[] = [
         id: "actions",
         cell: ({ row }) => {
             const { _id } = row.original
-            // console.log("project", project);
-
-
 
             // Delete project
             const handleDeleteProject = async () => {

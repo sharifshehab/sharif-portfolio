@@ -11,7 +11,6 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { deleteProject, getProjects } from "@/services/ProjectServices/ProjectApi"
 import Link from "next/link"
 import { deleteBlog } from "@/services/BlogServices/BlogApi"
 
@@ -45,14 +44,15 @@ export const columns: ColumnDef<IProject>[] = [
         header: "Created On",
     },
     {
+        accessorKey: "",
+        header: "Action",
+    },
+    {
         id: "actions",
         cell: ({ row }) => {
             const { _id } = row.original
-            // console.log("project", project);
 
-
-
-            // Delete project
+            // Delete blog
             const handleDeleteBlog = async () => {
                 await deleteBlog(_id)
             }
