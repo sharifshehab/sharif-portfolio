@@ -224,7 +224,6 @@ const EditProjectForm = ({ id, project }: { id: string, project: any }) => {
                             </div>
                         )
                         }
-
                         <SingleImageUploader onChange={setImage} />
                     </div>{/* Project thumbnail */}
                 </div>{/* 4th row */}
@@ -240,7 +239,6 @@ const EditProjectForm = ({ id, project }: { id: string, project: any }) => {
                                 <FormControl>
                                     <LexicalEditor
                                         value={field.value}
-                                        // value={description}
                                         onChange={field.onChange}
                                     />
                                 </FormControl>

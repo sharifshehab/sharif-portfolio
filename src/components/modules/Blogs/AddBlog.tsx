@@ -22,14 +22,10 @@ import LexicalEditor from "../Editor/LexicalEditor";
 import { IBlog } from "@/types";
 import { DialogTitle } from "@radix-ui/react-dialog";
 import { addBlog } from "@/services/BlogServices/BlogApi";
-import { getUser } from "@/services/AuthServices/AuthApi";
 
 const AddBlog = () => {
     const [image, setImage] = useState<File | null>(null);
     const [open, setOpen] = useState(false);
-
-
-
 
     // using ZOD
     const addBlogFormSchema = z.object({
@@ -162,7 +158,7 @@ const AddBlog = () => {
                             />
 
                         </div>
-                        {/* 5th row */}
+                        {/* last row */}
                     </form>
                 </Form>
 

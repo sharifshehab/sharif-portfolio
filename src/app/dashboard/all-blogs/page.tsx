@@ -7,7 +7,6 @@ import AddBlog from "@/components/modules/Blogs/AddBlog";
 const AllProjects = async () => {
 
     const { data } = await getBlogs();
-    console.log(data);
 
     return (
         <div className="container mx-auto py-10">
