@@ -13,9 +13,6 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { deleteProject, getProjects } from "@/services/ProjectServices/ProjectApi"
 import Link from "next/link"
-import EditProject from "@/components/modules/Projects/EditProject"
-import { useState } from "react"
-// import { revalidateTag } from "next/cache"
 
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
@@ -63,7 +60,7 @@ export const columns: ColumnDef<IProject>[] = [
             const { _id } = row.original
             // console.log("project", project);
 
-            const [open, setOpen] = useState(false);
+
 
             // Delete project
             const handleDeleteProject = async () => {
@@ -82,10 +79,7 @@ export const columns: ColumnDef<IProject>[] = [
                         <DropdownMenuLabel>Actions</DropdownMenuLabel>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem><Link href={`/dashboard/projects/${_id}`}>View</Link></DropdownMenuItem>
-                        <DropdownMenuItem asChild>
-                            <button onClick={() => setOpen(true)}>Edit</button>
-                        </DropdownMenuItem>
-                        <EditProject open={open} onOpenChange={setOpen} />
+                        <DropdownMenuItem><Link href={`/dashboard/all-projects/${_id}`}>Edit</Link></DropdownMenuItem>
                         <DropdownMenuItem onClick={handleDeleteProject}>Delete</DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>

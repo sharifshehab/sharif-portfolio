@@ -11,14 +11,16 @@ import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
 import { AutoFocusPlugin } from "@lexical/react/LexicalAutoFocusPlugin";
 import { LexicalErrorBoundary } from "@lexical/react/LexicalErrorBoundary";
 import { OnChangePlugin } from "@lexical/react/LexicalOnChangePlugin";
-import { EditorState } from "lexical";
+import { $createParagraphNode, $createTextNode, $getRoot, EditorState,  } from "lexical";
 import Toolbar from "./Toolbar";
 
 interface LexicalProps {
+    value?: string
     onChange: (value: string) => void
 }
 
-export default function LexicalEditor({ onChange }: LexicalProps) {
+export default function LexicalEditor({ value, onChange }: LexicalProps) {
+    // console.log("rich", value);d
 
     const initialConfig = {
         namespace: 'LexicalEditor',
@@ -26,6 +28,24 @@ export default function LexicalEditor({ onChange }: LexicalProps) {
         onError(error: Error) {
             console.log(error);
         },
+        editorState: () => {
+            const root = $getRoot();
+            if (value) {
+                // If you stored JSON from Lexical, you can parse it and use editor.parseEditorState
+                // For now, treat as plain text:
+                const paragraph = $createParagraphNode();
+                paragraph.append($createTextNode(value));
+                root.append(paragraph);
+            }
+        },
+    };
+
+    // When editor changes, bubble JSON string to parent form
+    const handleChange = (editorState: EditorState) => {
+        editorState.read(() => {
+            const plainText = $getRoot().getTextContent();
+            onChange(plainText); // update parent form
+        });
     };
 
     return (
@@ -37,11 +57,12 @@ export default function LexicalEditor({ onChange }: LexicalProps) {
                         <ContentEditable
                             className="outline-none ps-3 pt-2"
                             aria-placeholder={'Write project description'}
-                            placeholder={<div>Write project description...</div>}
+                            placeholder={<div>{'Write project description'}</div>}
                         />
                     }
                     ErrorBoundary={LexicalErrorBoundary}
                 />
+                <OnChangePlugin onChange={handleChange} />
                 <HistoryPlugin />
                 <AutoFocusPlugin />
 
