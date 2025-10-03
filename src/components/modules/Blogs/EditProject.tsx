@@ -46,8 +46,7 @@ const EditProjectForm = ({ id, blog }: { id: string, blog: any }) => {
             tags: tags?.join(", "),
         },
     });
-/* : SubmitHandler<Partial<IBlog>> */
-    const onSubmit = async (data: z.infer<typeof editBlogFormSchema>) => {
+    const onSubmit: SubmitHandler<IBlog> = async (data: z.infer<typeof editBlogFormSchema>) => {
 
         try {
             const formData = new FormData();

@@ -25,39 +25,31 @@ const EditProjectForm = ({ id, project }: { id: string, project: any }) => {
         name: z
             .string()
             .min(5, { message: "Name must be at least 5 characters long." })
-            .max(25, { message: "Name cannot exceed 25 characters." })
-            .optional(),
+            .max(25, { message: "Name cannot exceed 25 characters." }),
         title: z
             .string()
-            .min(1, { message: "Title is required." })
-            .optional(),
+            .min(1, { message: "Title is required." }),
         description: z
             .string()
-            .min(1, { message: "Description is required." })
-            .optional(),
+            .min(1, { message: "Description is required." }),
         thumbnail: z
             .string()
             .optional(),
         technologies: z
             .string()
-            .min(1, { message: "Technologies is required." })
-            .optional(),
+            .min(1, { message: "Technologies is required." }),
         features: z
             .string()
-            .min(1, { message: "Features is required." })
-            .optional(),
+            .min(1, { message: "Features is required." }),
         frontEndGithubRepo: z
             .string()
-            .min(1, { message: "Frontend Github Repository is required." })
-            .optional(),
+            .min(1, { message: "Frontend Github Repository is required." }),
         backEndGithubRepo: z
             .string()
-            .min(1, { message: "Backend Github Repository is required." })
-            .optional(),
+            .min(1, { message: "Backend Github Repository is required." }),
         liveLink: z
             .string()
-            .min(1, { message: "Live Link is required." })
-            .optional(),
+            .min(1, { message: "Live Link is required." }),
     });
 
     const form = useForm<z.infer<typeof registrationFormSchema>>({
@@ -74,7 +66,7 @@ const EditProjectForm = ({ id, project }: { id: string, project: any }) => {
         },
     });
 
-    const onSubmit: SubmitHandler<Partial<IProject>> = async (data: z.infer<typeof registrationFormSchema>) => {
+    const onSubmit: SubmitHandler<IProject> = async (data: z.infer<typeof registrationFormSchema>) => {
 
         try {
             const formData = new FormData();
