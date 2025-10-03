@@ -1,8 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import Image from "next/image";
-import { DiGithubAlt } from "react-icons/di";
-import { HiStatusOnline } from "react-icons/hi";
-import { IoCheckmarkDoneSharp, IoCodeWorkingSharp } from "react-icons/io5";
 
 
 // export const generateStaticParams = async () => {

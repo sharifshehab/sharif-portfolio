@@ -22,11 +22,13 @@ import Git from "../../../../assets/git-original.svg";
 import postman from "../../../../assets/postman.png";
 import SectionHeading from "@/components/shared/SectionHeading";
 import Image from "next/image";
+import Container from "@/components/Container";
 
 
 const Skills = () => {
     return (
-        <section id="skill" className="container mx-auto px-5">
+        <section id="skill">
+            <Container>
             <SectionHeading bgHeading="Skill" Heading="Skills I have honed"></SectionHeading>
 
             <div className="space-y-20">
@@ -149,7 +151,7 @@ const Skills = () => {
                     </div>
                 </div>{/* Tools */}
             </div>
-
+            </Container>
         </section>
     );
 };

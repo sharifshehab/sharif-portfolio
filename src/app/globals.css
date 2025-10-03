@@ -122,6 +122,10 @@
 
 }
 
+main>section {
+  padding: 90px 0;
+}
+
 .logo-Bg-shape{
     clip-path: polygon(0 0, 90% 0%, 80% 100%, 0 100%);
 }
@@ -130,19 +134,19 @@
     position: relative;
     display: inline-block;
     color: #fff;
-    text-align: center; /* Ensures text alignment if needed */
-    height: 200px; /* Set a height for demonstration */
+    text-align: center;
+    height: 200px;
 }
 
 .text-background::before {
     content: "Background Text";
     position: absolute;
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Adjust position from center point */
-    z-index: -1; /* Ensure it's behind the content */
-    font-size: 5rem; /* Adjust size */
-    color: rgba(0, 0, 0, 0.1); /* Transparent background text */
-    white-space: nowrap; /* Prevent wrapping */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    z-index: -1; 
+    font-size: 5rem; 
+    color: rgba(0, 0, 0, 0.1); 
+    white-space: nowrap; 
 }
 
