@@ -2,7 +2,6 @@
 import { RiGithubLine } from "react-icons/ri";
 import { LiaLinkedinIn } from "react-icons/lia";
 import { BiLogoBehance } from "react-icons/bi";
-import { MdKeyboardArrowDown } from "react-icons/md";
 import Image from "next/image";
 import Container from "@/components/Container";
 
@@ -15,12 +14,12 @@ const Hero = () => {
                     <div className="content text-white text-center md:text-left">
                         <div className="space-y-5">
                             <div className="">
-                                <span className="text-primaryColor">Hi, My Name is</span>
+                                <span className="text-primary">Hi, This is</span>
                                 <h2 className="text-3xl md:text-5xl font-jost">Sharif Shehabuzzaman</h2>
                             </div>
                             <div>
                                 <span>I am A</span>
-                                <h1 className="font-jost text-3xl md:text-5xl lg:text-7xl font-extrabold leading-snug text-stroke text-stroke-white text-stroke-[5px] text-primary underline underline-offset-8 decoration-white decoration-4">
+                                <h1 className="font-jost text-3xl md:text-5xl lg:text-7xl font-extrabold  text-stroke text-stroke-white text-stroke-[5px] text-primary underline underline-offset-8 decoration-white decoration-4">
                                     Full Stack Developer
                                 </h1>
                             </div>

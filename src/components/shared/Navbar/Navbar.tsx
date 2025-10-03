@@ -101,7 +101,7 @@ const Navbar = () => {
                     ) :
 
                         // user account
-                        <div className="flex items-center gap-[15px]">
+                        <div className="flex items-center gap-[15px] pe-[135px]">
 
 
                             <div className="flex items-center gap-[10px] cursor-pointer relative"
