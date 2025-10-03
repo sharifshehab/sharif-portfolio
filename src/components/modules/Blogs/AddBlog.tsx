@@ -56,7 +56,7 @@ const AddBlog = () => {
 
 
     const onSubmit: SubmitHandler<IBlog> = async (data: z.infer<typeof addBlogFormSchema>) => {
-        
+
         if (!image) {
             return toast.warning("Select blog image");
         }
@@ -88,10 +88,10 @@ const AddBlog = () => {
 
             <div className="flex justify-end">
                 <DialogTrigger asChild>
-                    <Button variant="outline">Add Blog</Button>
+                    <Button variant="outline" className="rounded-none bg-primary mb-3 text-white text-lg cursor-pointer">Add Blog</Button>
                 </DialogTrigger>
             </div>
-            <DialogContent className="min-w-9/12">
+            <DialogContent className="w-[90%] md:max-w-4xl max-h-[90vh] overflow-y-auto rounded-none">
 
                 <DialogHeader className="sr-only">
                     <DialogTitle>Add Blog</DialogTitle>
@@ -99,7 +99,7 @@ const AddBlog = () => {
 
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} id="add-blog" >
-                        <h2 className="text-3xl mb-10 text-center">Add New Blog</h2>
+                        <h2 className="text-3xl mb-10 text-center text-secondary">Add New Blog</h2>
                         <div className="flex flex-col md:flex-row justify-between gap-14">
                             <div className="flex-1">
                                 <FormField
@@ -107,7 +107,7 @@ const AddBlog = () => {
                                     name="title"
                                     render={({ field }) => (
                                         <FormItem>
-                                            <FormLabel className="p-1">Title:</FormLabel>
+                                            <FormLabel className="text-base p-1">Title:</FormLabel>
                                             <FormControl>
                                                 <Input placeholder="Write blog title" {...field} className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1" />
                                             </FormControl>
@@ -122,7 +122,7 @@ const AddBlog = () => {
                                     name="tags"
                                     render={({ field }) => (
                                         <FormItem>
-                                            <FormLabel className="text-primary text-base p-1 ">Tags:</FormLabel>
+                                            <FormLabel className="text-base p-1">Tags:</FormLabel>
                                             <FormControl>
                                                 <Input placeholder="Write blog tags, separate each tag with comma" {...field} className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1" />
                                             </FormControl>
@@ -132,10 +132,10 @@ const AddBlog = () => {
                                 />
                             </div>{/* tags */}
                         </div>{/* 1st row */}
-                        <div className="flex flex-col md:flex-row justify-between gap-14">
-                            
+                        <div className="my-8">
+
                             <div className="flex-1">
-                                <h3>Image</h3>
+                                <h3 className="mb-2">Image:</h3>
                                 <SingleImageUploader onChange={setImage} />
                             </div>{/* blog thumbnail */}
                         </div>{/* 2nd row */}
@@ -146,7 +146,7 @@ const AddBlog = () => {
                                 name="description"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel className="text-primary text-base p-1 ">Blog Description:</FormLabel>
+                                        <FormLabel className="text-base p-1 ">Blog Description:</FormLabel>
                                         <FormControl>
                                             <LexicalEditor
                                                 onChange={field.onChange}
@@ -164,9 +164,9 @@ const AddBlog = () => {
 
                 <DialogFooter>
                     <DialogClose asChild>
-                        <Button variant="outline">Cancel</Button>
+                        <Button variant="outline" className="rounded-none cursor-pointer">Cancel</Button>
                     </DialogClose>
-                    <Button type="submit" form="add-blog">Add Blog</Button>
+                    <Button type="submit" form="add-blog" className="rounded-none cursor-pointer">Add Blog</Button>
                 </DialogFooter>
             </DialogContent>
 

@@ -11,7 +11,7 @@ import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
 import { AutoFocusPlugin } from "@lexical/react/LexicalAutoFocusPlugin";
 import { LexicalErrorBoundary } from "@lexical/react/LexicalErrorBoundary";
 import { OnChangePlugin } from "@lexical/react/LexicalOnChangePlugin";
-import { $createParagraphNode, $createTextNode, $getRoot, EditorState,  } from "lexical";
+import { $createParagraphNode, $createTextNode, $getRoot, EditorState, } from "lexical";
 import Toolbar from "./Toolbar";
 
 interface LexicalProps {
@@ -20,7 +20,6 @@ interface LexicalProps {
 }
 
 export default function LexicalEditor({ value, onChange }: LexicalProps) {
-    // console.log("rich", value);d
 
     const initialConfig = {
         namespace: 'LexicalEditor',
@@ -50,14 +49,14 @@ export default function LexicalEditor({ value, onChange }: LexicalProps) {
 
     return (
         <LexicalComposer initialConfig={initialConfig}>
-            <div className="border rounded-md">
+            <div className="border rounded-none h-auto">
                 <Toolbar /> {/* editor tool bar */}
                 <RichTextPlugin
                     contentEditable={
                         <ContentEditable
-                            className="outline-none ps-3 pt-2"
+                            className="outline-none ps-3 pt-2 h-36"
                             aria-placeholder={'Write project description'}
-                            placeholder={<div>{'Write project description'}</div>}
+                            placeholder={<div className="ps-3">{'Write project description'}</div>}
                         />
                     }
                     ErrorBoundary={LexicalErrorBoundary}

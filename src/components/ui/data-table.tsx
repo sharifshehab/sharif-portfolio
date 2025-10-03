@@ -1,5 +1,4 @@
 "use client"
-
 import {
     ColumnDef,
     flexRender,
@@ -29,17 +28,23 @@ export function DataTable<TData, TValue>({
         data,
         columns,
         getCoreRowModel: getCoreRowModel(),
+        columnResizeMode: "onChange",
+        defaultColumn: {
+            size: 150,
+            minSize: 150,
+            maxSize: 250,
+        }
     })
 
     return (
-        <div className="overflow-hidden rounded-md border">
-            <Table>
+        <div className="overflow-hidden border-primary border">
+            <Table className="table-fixed w-full">
                 <TableHeader>
                     {table.getHeaderGroups().map((headerGroup) => (
                         <TableRow key={headerGroup.id}>
                             {headerGroup.headers.map((header) => {
                                 return (
-                                    <TableHead key={header.id}>
+                                    <TableHead key={header.id} style={{ width: header.getSize() }} className="text-primary text-lg">
                                         {header.isPlaceholder
                                             ? null
                                             : flexRender(
@@ -60,7 +65,7 @@ export function DataTable<TData, TValue>({
                                 data-state={row.getIsSelected() && "selected"}
                             >
                                 {row.getVisibleCells().map((cell) => (
-                                    <TableCell key={cell.id}>
+                                    <TableCell key={cell.id} style={{ width: cell.column.getSize() }} className="text-white truncate whitespace-nowrap overflow-hidden"> 
                                         {flexRender(cell.column.columnDef.cell, cell.getContext())}
                                     </TableCell>
                                 ))}
@@ -68,7 +73,7 @@ export function DataTable<TData, TValue>({
                         ))
                     ) : (
                         <TableRow>
-                            <TableCell colSpan={columns.length} className="h-24 text-center">
+                            <TableCell colSpan={columns.length} className="h-24 text-center text-primary text-2xl">
                                 No results.
                             </TableCell>
                         </TableRow>

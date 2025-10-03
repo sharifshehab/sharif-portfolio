@@ -1,20 +1,37 @@
 import Container from "@/components/Container";
 import SectionHeading from "@/components/shared/SectionHeading";
+import { getDetails } from "@/services/DetailsServices/DetailsApi";
 
-const Educations = () => {
+const Educations = async () => {
+    const { data } = await getDetails()
+    const { education } = data[0]
+    const { title, institute, session } = education[0]
 
-    const TimelineData = [
-        { date: "2021", title: "BSc Electrical and Electronic Engineering", institute: "AMIE - The Institution of Engineers, Bangladesh (IEB)", session: "2021-2024", },
-        { date: "2016", title: "Diploma in Electrical Technology", institute: "AMIE - Faridpur Polytechnic Institute", session: "2016-2019", publication: "2020" }
-    ]
     return (
-        <section id="contact">
+        <section id="educations">
             <Container>
                 <SectionHeading bgHeading="Educations" Heading="MY Academic History"></SectionHeading>
                 <div className="max-w-4xl mx-auto p-6">
 
                     <div className="relative border-l border-primary">
-                        {TimelineData.map((milestone, index) => (
+                        <div className="mb-8">
+                            <div
+                                className="absolute w-5 h-5 bg-primary z-10 border-4 border-slate-200 rounded-full left-[0px] transform -translate-x-1/2 -translate-y-1/2" />
+                            <div className="pl-6">
+                                <div>
+                                    <h3 className="heading text-2xl line-clamp-2 font-bold text-left">
+                                        {title}
+                                    </h3>
+                                </div>
+                                <p className="mt-1 text-lg">
+                                    {institute}
+                                </p>
+                                <p className="mt-1">
+                                    <span className="font-bold">session: </span>{session}
+                                </p>
+                            </div>
+                        </div>
+                        {/* {TimelineData.map((milestone, index) => (
                             <div key={index} className="mb-8">
                                 <div
                                     className="absolute w-5 h-5 bg-primary z-10 border-4 border-slate-200 rounded-full left-[0px] transform -translate-x-1/2 -translate-y-1/2" />
@@ -27,7 +44,7 @@ const Educations = () => {
                                         </div>
                                         <div>
                                             <h3 className="heading text-2xl line-clamp-2 font-bold text-left">
-                                                {milestone.title}
+                                                {title}
                                             </h3>
                                         </div>
                                     </div>
@@ -45,7 +62,7 @@ const Educations = () => {
                                     </p>
                                 </div>
                             </div>
-                        ))}
+                        ))} */}
                     </div>
                 </div>
             </Container>

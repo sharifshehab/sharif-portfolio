@@ -7,8 +7,6 @@ import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import Link from "next/link"
@@ -34,21 +32,22 @@ export const columns: ColumnDef<IProject>[] = [
     {
         accessorKey: "title",
         header: "Title",
+        size: 150,
     },
     {
         accessorKey: "description",
         header: "Description",
+        cell: (info) => info.getValue(),
+        size: 300,
     },
     {
         accessorKey: "createdAt",
         header: "Created On",
-    },
-    {
-        accessorKey: "",
-        header: "Action",
+        size: 150,
     },
     {
         id: "actions",
+        header: "Actions",
         cell: ({ row }) => {
             const { _id } = row.original
 
@@ -66,11 +65,9 @@ export const columns: ColumnDef<IProject>[] = [
                         </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
-                        <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                        <DropdownMenuSeparator />
                         <DropdownMenuItem><Link href={`/dashboard/projects/${_id}`}>View</Link></DropdownMenuItem>
                         <DropdownMenuItem><Link href={`/dashboard/all-blogs/${_id}`}>Edit</Link></DropdownMenuItem>
-                        <DropdownMenuItem onClick={handleDeleteBlog}>Delete</DropdownMenuItem>
+                        <DropdownMenuItem onClick={handleDeleteBlog}><span className="cursor-pointer">Delete</span></DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
             )

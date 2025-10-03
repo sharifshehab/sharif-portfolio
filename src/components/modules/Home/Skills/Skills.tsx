@@ -27,7 +27,7 @@ import Container from "@/components/Container";
 
 const Skills = () => {
     return (
-        <section id="skill">
+        <section id="skills">
             <Container>
             <SectionHeading bgHeading="Skill" Heading="Skills I have honed"></SectionHeading>
 

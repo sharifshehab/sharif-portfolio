@@ -8,7 +8,7 @@ const Blogs = async () => {
     const { data: posts } = await getBlogs();
 
     return (
-        <section id="blog">
+        <section id="blogs">
             <Container>
                 <div className="mb-5 text-center">
                     <SectionHeading bgHeading="My Blog" Heading="Latest Blogs"></SectionHeading>

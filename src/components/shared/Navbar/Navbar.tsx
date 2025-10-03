@@ -19,39 +19,39 @@ const Navbar = () => {
     const menItems = (
         <>
             <li>
-                <a href="#about" className="relative group transition duration-300 hover:bg-transparent">
+                <Link href={"/"} className="relative group transition duration-300 hover:bg-transparent">
                     Home
-                    <span className="absolute left-0 bottom-0 lg:top-[49px] h-[3px] w-full origin-left scale-x-0 bg-primaryColor transition-transform duration-300 ease-in-out group-hover:scale-x-100"></span>
-                </a>
+                    <span className="absolute left-0 bottom-0 lg:top-[44px] h-[3px] w-full origin-left scale-x-0 bg-primary transition-transform duration-300 ease-in-out group-hover:scale-x-100"></span>
+                </Link>
             </li>
             <li>
                 <a href="#about" className="relative group transition duration-300 hover:bg-transparent">
                     About
-                    <span className="absolute left-0 bottom-0 lg:top-[49px] h-[3px] w-full origin-left scale-x-0 bg-primaryColor transition-transform duration-300 ease-in-out group-hover:scale-x-100"></span>
+                    <span className="absolute left-0 bottom-0 lg:top-[44px] h-[3px] w-full origin-left scale-x-0 bg-primary transition-transform duration-300 ease-in-out group-hover:scale-x-100"></span>
                 </a>
             </li>
             <li>
-                <a href="#about" className="relative group transition duration-300 hover:bg-transparent">
-                    About
-                    <span className="absolute left-0 bottom-0 lg:top-[49px] h-[3px] w-full origin-left scale-x-0 bg-primaryColor transition-transform duration-300 ease-in-out group-hover:scale-x-100"></span>
+                <a href="#skills" className="relative group transition duration-300 hover:bg-transparent">
+                    Skills
+                    <span className="absolute left-0 bottom-0 lg:top-[44px] h-[3px] w-full origin-left scale-x-0 bg-primary transition-transform duration-300 ease-in-out group-hover:scale-x-100"></span>
                 </a>
             </li>
             <li>
-                <a href="#about" className="relative group transition duration-300 hover:bg-transparent">
-                    About
-                    <span className="absolute left-0 bottom-0 lg:top-[49px] h-[3px] w-full origin-left scale-x-0 bg-primaryColor transition-transform duration-300 ease-in-out group-hover:scale-x-100"></span>
+                <a href="#projects" className="relative group transition duration-300 hover:bg-transparent">
+                    Project
+                    <span className="absolute left-0 bottom-0 lg:top-[44px] h-[3px] w-full origin-left scale-x-0 bg-primary transition-transform duration-300 ease-in-out group-hover:scale-x-100"></span>
                 </a>
             </li>
             <li>
-                <a href="#about" className="relative group transition duration-300 hover:bg-transparent">
-                    About
-                    <span className="absolute left-0 bottom-0 lg:top-[49px] h-[3px] w-full origin-left scale-x-0 bg-primaryColor transition-transform duration-300 ease-in-out group-hover:scale-x-100"></span>
+                <a href="#educations" className="relative group transition duration-300 hover:bg-transparent">
+                    Education
+                    <span className="absolute left-0 bottom-0 lg:top-[44px] h-[3px] w-full origin-left scale-x-0 bg-primary transition-transform duration-300 ease-in-out group-hover:scale-x-100"></span>
                 </a>
             </li>
             <li>
-                <a href="#about" className="relative group transition duration-300 hover:bg-transparent">
-                    About
-                    <span className="absolute left-0 bottom-0 lg:top-[49px] h-[3px] w-full origin-left scale-x-0 bg-primaryColor transition-transform duration-300 ease-in-out group-hover:scale-x-100"></span>
+                <a href="#blogs" className="relative group transition duration-300 hover:bg-transparent">
+                    Blog
+                    <span className="absolute left-0 bottom-0 lg:top-[44px] h-[3px] w-full origin-left scale-x-0 bg-primary transition-transform duration-300 ease-in-out group-hover:scale-x-100"></span>
                 </a>
             </li>
         </>
@@ -89,7 +89,7 @@ const Navbar = () => {
                 </span>
 
                 {/* nav links */}
-                <ul className="items-center gap-[20px] text-[1rem] text-[#424242] lg:flex hidden">
+                <ul className="items-center gap-8 font-medium text-secondary lg:flex hidden">
                     {menItems}
                 </ul>
                 {
