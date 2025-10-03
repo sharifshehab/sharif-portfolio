@@ -1,22 +1,13 @@
-"use client"
-import { useEffect, useState } from "react";
 import SingleProject from "./SingleProject";
 import SectionHeading from "@/components/shared/SectionHeading";
 import Link from "next/link";
+import { getProjects } from "@/services/ProjectServices/ProjectApi";
+import { IProject } from "@/types";
 
 
-const Projects = () => {
+const Projects = async () => {
 
-    const [projects, setProjects] = useState([])
-
-    useEffect(() => {
-        fetch('https://sharif-shehab-server.vercel.app/projects')
-            .then(res => res.json())
-            .then(data => {
-                setProjects(data);
-            });
-    }, [])
-
+    const { data: projects } = await getProjects();
 
     return (
         <section className="container mx-auto px-5" id="projects">
@@ -24,11 +15,11 @@ const Projects = () => {
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
                 {
-                    projects.map(project => <SingleProject key={project._id} project={project}></SingleProject>)
+                    projects.map((project: IProject) => <SingleProject key={project._id} project={project}></SingleProject>)
                 }
             </div>
             <div className="text-center mt-8">
-                {/* <Link to={"/all-projects"} ><button className="btn rounded-none bg-primaryColor text-white hover:bg-secondaryColor duration-500">All Projects</button></Link> */}
+                <Link href={"/all-projects"} ><button className="p-3 rounded-none cursor-pointer bg-primary text-white hover:bg-secondary duration-500">All Projects</button></Link>
             </div>
         </section>
     );

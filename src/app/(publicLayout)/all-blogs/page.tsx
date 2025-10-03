@@ -1,9 +1,9 @@
+import SingleBlog from "@/components/modules/Home/Blogs/SingleBlog";
 import SectionHeading from "@/components/shared/SectionHeading";
 import { getBlogs } from "@/services/BlogServices/BlogApi";
 import { IBlog } from "@/types";
-import SingleBlog from "./SingleBlog";
 
-const Blogs = async () => {
+const AllBlogs = async() => {
     const { data: posts } = await getBlogs();
 
     return (
@@ -21,4 +21,4 @@ const Blogs = async () => {
     );
 };
 
-export default Blogs;
+export default AllBlogs;

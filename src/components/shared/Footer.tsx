@@ -8,7 +8,7 @@ const Footer = () => {
     return (
         <footer className="bg-secondary border-t border-primary">
             <div className="flex flex-col items-center justify-center space-y-6 py-20">
-                < Link href={'/'} target="_blank" className="text-3xl text-primary font-semibold"> Sharif <span className="text-white">.S</span></ Link >
+                < Link href={'/'}  className="text-3xl text-primary font-semibold"> Sharif <span className="text-white">.S</span></ Link >
                 <p className="text-white max-w-4xl text-center">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum repellat cumque omnis doloribus provident dicta Lorem ipsum dolor sit amet.</p>
 
                 <div className="flex items-center gap-5 text-white">

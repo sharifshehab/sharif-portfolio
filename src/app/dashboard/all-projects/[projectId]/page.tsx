@@ -18,7 +18,7 @@ const getSinglePost = async (id: string) => {
 }
 
 
-const Project = async ({ params }: { params: Promise<{ projectId: string }> }) => {
+const SingleProject = async ({ params }: { params: Promise<{ projectId: string }> }) => {
     const { projectId } = await params
     const { data } = await getSinglePost(projectId)
 
@@ -27,4 +27,4 @@ const Project = async ({ params }: { params: Promise<{ projectId: string }> }) =
     );
 };
 
-export default Project;
+export default SingleProject;

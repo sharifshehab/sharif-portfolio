@@ -13,6 +13,7 @@ export interface IChildren {
 }
 
 export interface IProject {
+    _id?: string;
     name: string;
     title: string;
     description: string;
@@ -27,6 +28,7 @@ export interface IProject {
 }
 
 export interface IBlog {
+    _id?: string;
     title: string;
     description: string;
     thumbnail?: string;

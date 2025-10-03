@@ -3,10 +3,7 @@ import React, { useEffect, useState } from "react";
 // react icons
 import { IoIosArrowUp } from "react-icons/io";
 import { CiMenuFries } from "react-icons/ci";
-import { AiOutlineFire } from "react-icons/ai";
-import { BiSupport } from "react-icons/bi";
 import { FiUser } from "react-icons/fi";
-import Container from "@/components/Container";
 import { usePathname } from "next/navigation";
 import { getUser, logoutUser } from "@/services/AuthServices/AuthApi";
 import { IUser } from "@/types";
@@ -83,12 +80,12 @@ const Navbar = () => {
     }
 
     return (
-        <div className="bg-white">
+        <div className="bg-white border-b-2">
             <nav
                 className="flex items-center justify-between w-full relative">
                 {/* logo */}
                 <span className="text-xl md:text-3xl text-white leading-none font-semibold logo-Bg-shape py-5 md:py-4 px-8 md:px-[135px] bg-primary">
-                    Sharif <span className="text-secondary">.S</span>
+                    <Link href={'/'} className="text-3xl text-white font-semibold">Sharif <span className="text-secondary">.S</span></ Link >
                 </span>
 
                 {/* nav links */}
@@ -102,8 +99,6 @@ const Navbar = () => {
 
                         // user account
                         <div className="flex items-center gap-[15px] pe-[135px]">
-
-
                             <div className="flex items-center gap-[10px] cursor-pointer relative"
                                 onClick={() => setAccountMenuOpen(!accountMenuOpen)}>
                                 <div className="relative">
