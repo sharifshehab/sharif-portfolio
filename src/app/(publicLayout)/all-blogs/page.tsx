@@ -2,8 +2,28 @@ import SingleBlog from "@/components/modules/Home/Blogs/SingleBlog";
 import SectionHeading from "@/components/shared/SectionHeading";
 import { getBlogs } from "@/services/BlogServices/BlogApi";
 import { IBlog } from "@/types";
+import { Metadata } from "next";
 
-const AllBlogs = async() => {
+
+export const metadata: Metadata = {
+    title: "All Blogs",
+    description: "Read Sharif Shehabuzzaman's latest articles on web development, React.js, Next.js, full-stack projects, and programming insights.",
+    keywords: [
+        "Sharif Shehabuzzaman",
+        "web development blogs",
+        "React.js tutorials",
+        "Next.js articles",
+        "full-stack development",
+        "frontend development",
+        "backend development",
+        "MERN stack tips",
+        "programming insights",
+        "developer blog",
+        "software development articles"
+    ]
+};
+
+const AllBlogs = async () => {
     const { data: posts } = await getBlogs();
 
     return (

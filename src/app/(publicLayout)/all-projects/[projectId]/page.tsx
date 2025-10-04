@@ -5,13 +5,13 @@ import { HiStatusOnline } from "react-icons/hi";
 import { IoCheckmarkDoneSharp, IoCodeWorkingSharp } from "react-icons/io5";
 
 
-// export const generateStaticParams = async () => {
-//     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/project/projects`)
-//     const { data: projects } = await res.json()
-//     return projects.map((project: any) => ({
-//         postId: project?._id,
-//     }))
-// }
+export const generateStaticParams = async () => {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/project/projects`)
+    const { data: projects } = await res.json()
+    return projects.map((project: any) => ({
+        postId: project?._id,
+    }))
+}
 
 // Function to fetch "single post data"
 const getSinglePost = async (id: string) => {
@@ -88,7 +88,7 @@ const singleProject = async ({ params }: { params: Promise<{ projectId: string }
                                 </div>
                             </button>
                         </a>
-                        <a href={frontEndGithubRepo} target="_blank" className="inline-block w-full">
+                        <a href={backEndGithubRepo} target="_blank" className="inline-block w-full">
                             <button
                                 className="py-3 px-4 w-full border bg-secondary text-white hover:drop-shadow-lg hover:opacity-85 duration-500 cursor-pointer">
                                 <div className="flex items-center justify-center gap-2">

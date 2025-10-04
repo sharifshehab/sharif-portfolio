@@ -1,13 +1,14 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Image from "next/image";
 
 
-// export const generateStaticParams = async () => {
-//     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/project/projects`)
-//     const { data: projects } = await res.json()
-//     return projects.map((project: any) => ({
-//         postId: project?._id,
-//     }))
-// }
+export const generateStaticParams = async () => {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blog/blogs`)
+    const { data: blogs } = await res.json()
+    return blogs.map((blog: any) => ({
+        blogId: blog?._id,
+    }))
+}
 
 // Function to fetch "single post data"
 const getSinglePost = async (id: string) => {
@@ -17,9 +18,8 @@ const getSinglePost = async (id: string) => {
 }
 
 
-const singleProject = async ({ params }: { params: Promise<{ blogId: string }> }) => {
-
-    const { blogId } = await params
+const singleProject = async ({ params }: { params: { blogId: string } }) => {
+    const { blogId } = params
     const { data } = await getSinglePost(blogId)
     const { title, description, thumbnail } = data || {}
 

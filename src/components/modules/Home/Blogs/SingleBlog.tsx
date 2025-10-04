@@ -5,7 +5,7 @@ import Link from "next/link";
 const SingleBlog = ({ post }: { post: IBlog }) => {
     const { _id, title, description, thumbnail } = post
     return (
-        <div key={_id} className="grid gap-y-6 sm:grid-cols-10 sm:gap-x-5 sm:gap-y-0 md:items-center md:gap-x-8 lg:gap-x-12">
+        <div className="grid gap-y-6 sm:grid-cols-10 sm:gap-x-5 sm:gap-y-0 md:items-center md:gap-x-8 lg:gap-x-12">
             <div className="sm:col-span-5 space-y-3">
                 <h3 className="heading text-2xl line-clamp-2 font-bold text-left border-b-2 border-b-primary pb-2 hover:border-b-secondary duration-300 transition-all">
                     {title}                                </h3>

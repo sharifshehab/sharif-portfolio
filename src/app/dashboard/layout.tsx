@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import { IoMdArrowBack } from "react-icons/io";
 import { Toaster } from "sonner";
 
-
 const DashboardLayout = ({ children }: IChildren) => {
     const pathName = usePathname();
     const links = [

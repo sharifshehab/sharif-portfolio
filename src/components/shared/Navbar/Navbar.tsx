@@ -53,6 +53,12 @@ const Navbar = () => {
                     <span className="absolute left-0 bottom-0 lg:top-[44px] h-[3px] w-full origin-left scale-x-0 bg-primary transition-transform duration-300 ease-in-out group-hover:scale-x-100"></span>
                 </a>
             </li>
+            <li>
+                <a href="#contact" className="relative group transition duration-300 hover:bg-transparent">
+                    Contact
+                    <span className="absolute left-0 bottom-0 lg:top-[44px] h-[3px] w-full origin-left scale-x-0 bg-primary transition-transform duration-300 ease-in-out group-hover:scale-x-100"></span>
+                </a>
+            </li>
         </>
     );
 
@@ -95,7 +101,6 @@ const Navbar = () => {
                     !userData ? (
                         <Link href={"/login"} className="w-40 bg-secondary text-white text-center py-5 hidden lg:block">login</Link>
                     ) :
-
                         // user account
                         <div className="flex items-center gap-[15px] pe-[135px]">
                             <div className="flex items-center gap-[10px] cursor-pointer relative"

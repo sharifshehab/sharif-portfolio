@@ -2,6 +2,25 @@ import AddDetails from "@/components/modules/Details/AddDetails";
 import UpdateDetails from "@/components/modules/Details/UpdateDetails";
 import { Button } from "@/components/ui/button";
 import { getDetails } from "@/services/DetailsServices/DetailsApi";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Details",
+    description: "Dashboard for managing details",
+    keywords: [
+        "Sharif Shehabuzzaman",
+        "web development blogs",
+        "React.js tutorials",
+        "Next.js articles",
+        "full-stack development",
+        "frontend development",
+        "backend development",
+        "MERN stack tips",
+        "programming insights",
+        "developer blog",
+        "software development articles"
+    ]
+};
 
 const Details = async () => {
     const { data } = await getDetails();

@@ -6,7 +6,6 @@ import Hero from "@/components/modules/Home/Hero/Hero";
 import Projects from "@/components/modules/Home/Projects/Projects";
 import Skills from "@/components/modules/Home/Skills/Skills";
 
-
 export default function Home() {
   return (
     <>
