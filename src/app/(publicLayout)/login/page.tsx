@@ -53,7 +53,7 @@ const Login = () => {
             if (user.success) {
                 form.reset();
                 toast.success("User logged in successfully.", { id: loadingToast });
-                router.push('/');
+                router.push('/dashboard/details');
             }
 
         } catch (error: any) {
@@ -62,9 +62,9 @@ const Login = () => {
         }
     }
     return (
-        <section className="bg-muted h-screen">
+        <section className="bg-white h-screen flex flex-col justify-center items-center">
             <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} id="add-tour" className="space-y-8 lg:w-5xl md:w-xl bg-card p-14">
+                <form onSubmit={form.handleSubmit(onSubmit)} id="add-tour" className="space-y-8 lg:w-5xl md:w-xl bg-secondary p-14">
                     <h2 className="text-primary text-3xl mb-10 text-center dark:text-white">Login</h2>
                     <div className="flex flex-col md:flex-row justify-between gap-14">
                         <div className="flex-1">
@@ -73,7 +73,7 @@ const Login = () => {
                                 name="email"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel className="font-yantramanav text-primary text-base p-1 dark:text-white">Email:</FormLabel>
+                                        <FormLabel className="font-yantramanav text-primary text-base p-1 dark:text-white">Admin Email:</FormLabel>
                                         <FormControl>
                                             <Input placeholder="Write your email address" {...field} className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1 text-secondary dark:text-white dark:placeholder:text-white" />
                                         </FormControl>
@@ -88,7 +88,7 @@ const Login = () => {
                                 name="password"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel className="font-yantramanav text-primary text-base p-1 dark:text-white">Password:</FormLabel>
+                                        <FormLabel className="font-yantramanav text-primary text-base p-1 dark:text-white">Admin Password:</FormLabel>
                                         <FormControl>
                                             <Input placeholder="Write your password" {...field} className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1 text-secondary dark:text-white dark:placeholder:text-white" />
                                         </FormControl>
@@ -98,7 +98,7 @@ const Login = () => {
                             />
                         </div>{/* name */}
                     </div>{/* 1st row */}
-                    <Button type="submit" className="p-5 cursor-pointer">Log In</Button>
+                    <Button type="submit" className="p-5 cursor-pointer rounded-none">Log In</Button>
                 </form>
             </Form>
 
