@@ -261,9 +261,9 @@ const AddProject = () => {
 
                 <DialogFooter>
                     <DialogClose asChild>
-                        <Button variant="outline">Cancel</Button>
+                        <Button variant="outline" className="rounded-none cursor-pointer">Cancel</Button>
                     </DialogClose>
-                    <Button type="submit" form="add-project">Add Project</Button>
+                    <Button type="submit" form="add-project" className="rounded-none cursor-pointer">Add Project</Button>
                 </DialogFooter>
             </DialogContent>
 

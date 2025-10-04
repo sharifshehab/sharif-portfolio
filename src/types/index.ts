@@ -34,3 +34,13 @@ export interface IBlog {
     thumbnail?: string;
     tags: string
 }
+interface IEducation {
+    title: string;
+    institute: string;
+    session: string;
+}
+export interface IDetails {
+    _id?: string;
+    about: string;
+    education: IEducation[];
+}

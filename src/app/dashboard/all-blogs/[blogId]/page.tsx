@@ -8,7 +8,8 @@
 //     }))
 // }
 
-import EditProjectForm from "@/components/modules/Blogs/EditProject";
+import EditBlogForm from "@/components/modules/Blogs/EditBlog";
+
 
 
 // Function to fetch "single post data"
@@ -23,7 +24,7 @@ const Project = async ({ params }: { params: Promise<{ blogId: string }> }) => {
     const { data } = await getSingleBlog(blogId)
 
     return (
-        <EditProjectForm id={blogId} blog={data}></EditProjectForm>
+        <EditBlogForm id={blogId} blog={data}></EditBlogForm>
     );
 };
 

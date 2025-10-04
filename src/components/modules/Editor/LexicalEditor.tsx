@@ -56,7 +56,7 @@ export default function LexicalEditor({ value, onChange }: LexicalProps) {
                         <ContentEditable
                             className="outline-none ps-3 pt-2 h-36"
                             aria-placeholder={'Write project description'}
-                            placeholder={<div className="ps-3">{'Write project description'}</div>}
+                            placeholder={<div className="ps-3">{'Write description'}</div>}
                         />
                     }
                     ErrorBoundary={LexicalErrorBoundary}

@@ -16,7 +16,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { updateBlog } from "@/services/BlogServices/BlogApi";
 
-const EditProjectForm = ({ id, blog }: { id: string, blog: any }) => {
+const EditBlogForm = ({ id, blog }: { id: string, blog: any }) => {
     const { title, description, thumbnail, tags } = blog || {}
     const [image, setImage] = useState<File | null>(null);
     const router = useRouter();
@@ -145,4 +145,4 @@ const EditProjectForm = ({ id, blog }: { id: string, blog: any }) => {
     );
 };
 
-export default EditProjectForm;
+export default EditBlogForm;

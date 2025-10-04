@@ -18,9 +18,10 @@ export const addDetails = async (formData: any) => {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/detail/details`, {
             method: "POST",
             headers: {
-                Authorization: `${token}`
+                Authorization: `${token}`,
+                "Content-Type": "application/json",
             },
-            body: formData,
+            body: JSON.stringify(formData),
         })
         const data = await res.json()
         if (data.success) {
@@ -32,37 +33,24 @@ export const addDetails = async (formData: any) => {
     }
 }
 
-// update blog
-export const updateBlog = async (id: string, formData: any) => {
+// update details
+export const updateDetails = async (id: string, formData: any) => {
     try {
         const token = (await cookies()).get("accessToken")?.value
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blog/${id}`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/detail/${id}`, {
             method: "PATCH",
             headers: {
-                Authorization: `${token}`
+                Authorization: `${token}`,
+                "Content-Type": "application/json",
             },
-            body: formData,
+            body: JSON.stringify(formData),
         })
         const data = await res.json()
         if (data?.success) {
-            revalidateTag("BLOGS")
+            revalidateTag("DETAILS")
         }
         return data
     } catch (error) {
         console.log(error);
     }
-}
-
-// delete blog
-export const deleteBlog = async (id: string) => {
-    const token = (await cookies()).get("accessToken")?.value
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blog/${id}`, {
-        method: "DELETE",
-        headers: { Authorization: `${token}` }
-    })
-    const data = await res.json()
-    if (data.success) {
-        revalidateTag("BLOGS")
-    }
-    return data
 }

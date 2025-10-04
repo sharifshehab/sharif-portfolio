@@ -10,6 +10,10 @@ const DashboardLayout = ({ children }: IChildren) => {
     const pathName = usePathname();
     const links = [
         {
+            title: "Details",
+            path: '/dashboard/details'
+        },
+        {
             title: "Projects",
             path: '/dashboard/all-projects'
         },
