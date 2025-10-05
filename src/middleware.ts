@@ -1,9 +1,9 @@
-import { cookies } from "next/headers";
-import { NextResponse } from "next/server";
+// import { cookies } from "next/headers";
+import { NextRequest, NextResponse } from "next/server";
 
-export const middleware = async (request: Request) => {
+export const middleware = async (request: NextRequest) => {
 
-    const token = (await cookies()).get("accessToken")?.value
+    const token = request.cookies.get('accessToken')
     if (!token) {
         return NextResponse.redirect(new URL('/login', request.url));
     }

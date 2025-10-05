@@ -9,7 +9,8 @@ const Footer = () => {
         <footer className="bg-secondary border-t border-primary">
             <div className="flex flex-col items-center justify-center space-y-6 py-20">
                 < Link href={'/'}  className="text-3xl text-primary font-semibold"> Sharif <span className="text-white">.S</span></ Link >
-                <p className="text-white max-w-4xl text-center">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum repellat cumque omnis doloribus provident dicta Lorem ipsum dolor sit amet.</p>
+                <p className="text-white max-w-4xl text-center">Crafting sleek designs with exceptional performance.
+                    Enhancing the power of MERN for seamless, robust applications.</p>
 
                 <div className="flex items-center gap-5 text-white">
                     <a href="https://github.com/sharifshehab" target="_blank" className="border p-2">

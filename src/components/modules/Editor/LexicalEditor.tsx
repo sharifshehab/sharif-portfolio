@@ -54,7 +54,7 @@ export default function LexicalEditor({ value, onChange }: LexicalProps) {
                 <RichTextPlugin
                     contentEditable={
                         <ContentEditable
-                            className="outline-none ps-3 pt-2 h-36"
+                            className={`${value ? "text-white" : ""} outline-none ps-3 py-2 min-h-36`}
                             aria-placeholder={'Write project description'}
                             placeholder={<div className="ps-3">{'Write description'}</div>}
                         />

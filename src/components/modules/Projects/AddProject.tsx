@@ -89,11 +89,24 @@ const AddProject = () => {
             formData.append("data", JSON.stringify(submittedData));
             formData.append("file", image as File);
 
-            const loadingToast = toast.loading("Adding project...");
+            const loadingToast = toast.loading("Adding project...", {
+                style: {
+                    background: "#02245b",
+                    color: "#ff5e14 ",
+                    fontWeight: "bold"
+                }
+            });
             const result = await addProject(formData);
             if (result.success) {
                 form.reset();
-                toast.success("Project added successfully.", { id: loadingToast });
+                toast.success("Project added successfully.", {
+                    id: loadingToast,
+                    style: {
+                        background: "#ff5e14",
+                        color: "#02245b",
+                        fontWeight: "bold"
+                    }
+                });
                 setOpen(false)
             }
 
@@ -110,7 +123,7 @@ const AddProject = () => {
                     <Button variant="outline" className="rounded-none bg-primary mb-3 text-white text-lg cursor-pointer">Add Project</Button>
                 </DialogTrigger>
             </div>
-            <DialogContent className="w-[90%] md:max-w-4xl max-h-[90vh] overflow-y-auto rounded-none">
+            <DialogContent className="w-[90%] md:max-w-7xl max-h-[90vh] overflow-y-auto rounded-none">
 
                 <DialogHeader className="sr-only">
                     <DialogTitle>Edit profile</DialogTitle>
@@ -192,7 +205,7 @@ const AddProject = () => {
                                         <FormItem>
                                             <FormLabel className="text-base p-1">Frontend Repository:</FormLabel>
                                             <FormControl>
-                                                <Input placeholder="Provide frontend github repository Url" {...field} className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1" />
+                                                <Input type="url" placeholder="Provide frontend github repository Url" {...field} className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1" />
                                             </FormControl>
                                             <FormMessage className="" />
                                         </FormItem>
@@ -207,7 +220,7 @@ const AddProject = () => {
                                         <FormItem>
                                             <FormLabel className="text-base p-1">Backend Repository:</FormLabel>
                                             <FormControl>
-                                                <Input placeholder="Provide backend github repository Url" {...field} className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1" />
+                                                <Input type="url" placeholder="Provide backend github repository Url" {...field} className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1" />
                                             </FormControl>
                                             <FormMessage className="" />
                                         </FormItem>
@@ -216,7 +229,7 @@ const AddProject = () => {
                             </div>{/* backend github repo */}
                         </div>{/* 3rd row */}
                         <div className="flex flex-col md:flex-row  items-end justify-between gap-14 my-8">
-                            <div className="flex-1">
+                            <div className="flex-1 w-full">
                                 <FormField
                                     control={form.control}
                                     name="liveLink"
@@ -224,14 +237,14 @@ const AddProject = () => {
                                         <FormItem>
                                             <FormLabel className="text-base p-1">Project Live Url:</FormLabel>
                                             <FormControl>
-                                                <Input placeholder="Provide project live Url" {...field} className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1" />
+                                                <Input type="url" placeholder="Provide project live Url" {...field} className="border-0 border-b border-b-primary rounded-none shadow-none p-0 ps-1" />
                                             </FormControl>
                                             <FormMessage className="" />
                                         </FormItem>
                                     )}
                                 />
                             </div>{/* Project Live Url */}
-                            <div className="flex-1">
+                            <div className="flex-1 w-full">
                                 <h3 className="mb-2">Image:</h3>
                                 <SingleImageUploader onChange={setImage} />
                             </div>{/* Project thumbnail */}

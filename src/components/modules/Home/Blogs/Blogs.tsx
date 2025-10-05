@@ -6,7 +6,7 @@ import Container from "@/components/Container";
 import Link from "next/link";
 
 const Blogs = async () => {
-    const { data: posts } = await getBlogs();
+    const { data: posts } = await getBlogs(2);
 
     return (
         <section id="blogs">

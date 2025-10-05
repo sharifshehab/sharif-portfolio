@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sharif .S 
 
-## Getting Started
+A modern web developer portfolio showcasing my projects and skills in React.js, Next.js, TypeScript, and full-stack development. Visitors can:
+- **View my introduction and contact me via email.**
 
-First, run the development server:
+- **Explore projects with details including technologies used, features, GitHub repositories, and live links.**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Browse blogs and read their full content.**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Admins have access to a dashboard where they can manage projects and blogs, adding, updating, or deleting content, and updating the About section.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This project utilizes SSG, SSR, and ISR for dynamic data, along with Suspense and shadcn Skeletons for smooth user interactions.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+It demonstrates MERN stack development, API integration, and responsive UI design, making it a practical showcase of real-world web applications.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## Technologies used:
+- **Next.js**
+- **TypeScript**
+- **ShadCN**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Key features:
+1. **Dynamic Project & Blog Management: Admins can add, update, and delete projects and blogs through a secure dashboard.**
+2. **Protected Routes with Middleware: Secure private routes to ensure only authorized users can access the admin dashboard.** 
+3. **SSG, SSR & ISR Support: Implements Static, Server-Side, and Incremental Static Rendering for optimized performance and up-to-date content.**
+4. **Smooth User Experience with Suspense & Skeletons: Uses Suspense and ShadCN skeletons for seamless loading and improved UX.**
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Installation:
+1. **First, clone the repository to your local machine. you can do this by downloading the zip file or by cloning it using the web URL**
+2. **Navigate to the project folder and open it with cmd terminal**
+3. **Write <code>npm i</code> in the terminal**
+4. **Create a file name <code>.env</code>, inside the project root folder**
+5. **Save your API base route as environment variables in this file:**
+    - **NEXT_PUBLIC_API_URL=your-api-route**
+6. **After the installation is complete, start the application by typing <code>npm run dev</code> in terminal**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **You should now be able to view and interact with the application on your local machine!**
+
+##  Live Link:
+- **[Sharif.S](https://sharif-portfolio-vert.vercel.app)**
+

@@ -13,8 +13,8 @@ interface SingleImageUploaderProps {
   onChange: (file: File | null) => void
 }
 export default function SingleImageUploader({ onChange }: SingleImageUploaderProps) {
-  const maxSizeMB = 2
-  const maxSize = maxSizeMB * 1024 * 1024 // 2MB default
+  const maxSizeMB = 450
+  const maxSize = maxSizeMB * 1024  // 450 KB default
 
   const [
     { files, isDragging, errors },
@@ -28,7 +28,7 @@ export default function SingleImageUploader({ onChange }: SingleImageUploaderPro
       getInputProps,
     },
   ] = useFileUpload({
-    accept: "image/svg+xml,image/png,image/jpeg,image/jpg,image/gif",
+    accept: "image/webp",
     maxSize,
   })
 
@@ -75,9 +75,9 @@ export default function SingleImageUploader({ onChange }: SingleImageUploaderPro
               >
                 <ImageIcon className="size-4 opacity-60" />
               </div>
-              <p className="mb-1.5 text-sm font-medium">Drop your image here</p>
+              <p className="mb-1.5 text-sm font-medium text-primary">Drop your image here</p>
               <p className="text-muted-foreground text-xs">
-                SVG, PNG, JPG or GIF (max. {maxSizeMB}MB)
+                Only WEBP(max. {maxSizeMB}KB)
               </p>
               <Button
                 variant="outline"
@@ -119,7 +119,7 @@ export default function SingleImageUploader({ onChange }: SingleImageUploaderPro
         </div>
       )}
 
-  
+
     </div>
   )
 }

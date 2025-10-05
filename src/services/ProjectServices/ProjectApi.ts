@@ -5,8 +5,16 @@ import { cookies } from "next/headers"
 
 
 // get all projects
-export const getProjects = async () => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/project/projects`, { next: { tags: ["PROJECTS"] } })
+export const getProjects = async (limit?: number) => {
+    const url = limit ? `${process.env.NEXT_PUBLIC_API_URL}/project/projects?limit=${limit}` : `${process.env.NEXT_PUBLIC_API_URL}/project/projects`
+
+
+    const res = await fetch(url, { next: { tags: ["PROJECTS"] } })
+
+    if (!res.ok) {
+        throw new Error("Failed to fetch project data")
+    }
+
     const data = await res.json()
     return data
 }
@@ -18,7 +26,7 @@ export const addProject = async (formData: any) => {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/project/projects`, {
             method: "POST",
             headers: {
-                Authorization: `${token}`
+                Authorization: `Bearer ${token}`
             },
             body: formData,
         })
@@ -39,9 +47,10 @@ export const updateProject = async (id: string, formData: any) => {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/project/${id}`, {
             method: "PATCH",
             headers: {
-                Authorization: `${token}`
+                Authorization: `Bearer ${token}`
             },
             body: formData,
+
         })
         const data = await res.json()
         if (data?.success) {
@@ -54,13 +63,14 @@ export const updateProject = async (id: string, formData: any) => {
 }
 
 
-
 // delete project
 export const deleteProject = async (id: string) => {
     const token = (await cookies()).get("accessToken")?.value
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/project/${id}`, {
         method: "DELETE",
-        headers: { Authorization: `${token}` }
+        headers: {
+            Authorization: `Bearer ${token}`
+        },
     })
     const data = await res.json()
     if (data.success) {

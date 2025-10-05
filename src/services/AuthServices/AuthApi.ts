@@ -1,6 +1,6 @@
 // get user data
 export const getUser = async () => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user/me`, {
+    const res = await fetch(`/api/v1/user/me`, {
         credentials: "include",
     })
     const data = await res.json()
@@ -9,7 +9,7 @@ export const getUser = async () => {
 
 // log-out user
 export const logoutUser = async () => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/logout`, {
+    const res = await fetch(`/api/v1/auth/logout`, {
         method: "POST",
         credentials: "include",
     })

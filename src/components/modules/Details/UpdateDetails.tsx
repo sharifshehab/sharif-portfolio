@@ -63,11 +63,24 @@ const UpdateDetails = ({ id, about, education }: { id: string, about: string, ed
                 }]
             }
 
-            const loadingToast = toast.loading("Adding details...");
+            const loadingToast = toast.loading("Updating details...", {
+                style: {
+                    background: "#02245b",
+                    color: "#ff5e14 ",
+                    fontWeight: "bold"
+                }
+            });
             const result = await updateDetails(id, formData);
             if (result.success) {
                 form.reset();
-                toast.success("Details added successfully.", { id: loadingToast });
+                toast.success("Details updated successfully.", {
+                    id: loadingToast,
+                    style: {
+                        background: "#ff5e14",
+                        color: "#02245b",
+                        fontWeight: "bold"
+                    }
+                });
                 setOpen(false)
             }
 

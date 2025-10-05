@@ -5,8 +5,13 @@ import { cookies } from "next/headers"
 
 
 // get all blogs
-export const getBlogs = async () => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blog/blogs`, { next: { tags: ["BLOGS"] } })
+export const getBlogs = async (limit?: number) => {
+    const url = limit ? `${process.env.NEXT_PUBLIC_API_URL}/blog/blogs?limit=${limit}` : `${process.env.NEXT_PUBLIC_API_URL}/blog/blogs`;
+
+    const res = await fetch(url, { next: { tags: ["BLOGS"] } })
+    if (!res.ok) {
+        throw new Error("Failed to fetch blog data")
+    }
     const data = await res.json()
     return data
 }
@@ -18,7 +23,7 @@ export const addBlog = async (formData: any) => {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blog/blogs`, {
             method: "POST",
             headers: {
-                Authorization: `${token}`
+                Authorization: `Bearer ${token}`
             },
             body: formData,
         })
@@ -39,7 +44,7 @@ export const updateBlog = async (id: string, formData: any) => {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blog/${id}`, {
             method: "PATCH",
             headers: {
-                Authorization: `${token}`
+                Authorization: `Bearer ${token}`
             },
             body: formData,
         })
@@ -58,7 +63,9 @@ export const deleteBlog = async (id: string) => {
     const token = (await cookies()).get("accessToken")?.value
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blog/${id}`, {
         method: "DELETE",
-        headers: { Authorization: `${token}` }
+        headers: {
+            Authorization: `Bearer ${token}`
+        },
     })
     const data = await res.json()
     if (data.success) {

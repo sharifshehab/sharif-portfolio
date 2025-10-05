@@ -8,7 +8,7 @@ import Container from "@/components/Container";
 
 const Projects = async () => {
 
-    const { data: projects } = await getProjects();
+    const { data: projects } = await getProjects(3);
 
     return (
         <section id="projects">

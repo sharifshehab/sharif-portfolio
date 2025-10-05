@@ -70,11 +70,24 @@ const AddBlog = () => {
             formData.append("data", JSON.stringify(submittedData));
             formData.append("file", image as File);
 
-            const loadingToast = toast.loading("Adding blog...");
+            const loadingToast = toast.loading("Adding blog...", {
+                style: {
+                    background: "#02245b",
+                    color: "#ff5e14 ",
+                    fontWeight: "bold"
+                }
+            });
             const result = await addBlog(formData);
             if (result.success) {
                 form.reset();
-                toast.success("Blog added successfully.", { id: loadingToast });
+                toast.success("Blog added successfully.", {
+                    id: loadingToast,
+                    style: {
+                        background: "#ff5e14",
+                        color: "#02245b",
+                        fontWeight: "bold"
+                    }
+                });
                 setOpen(false)
             }
 

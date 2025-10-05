@@ -30,14 +30,14 @@ const DashboardLayout = ({ children }: IChildren) => {
 
                         <ul className="menu">
                             {
-                                links.map(link => <li className={`${pathName === link.path ? "bg-secondary border-b-0": "border-b-2"} px-6 py-1.5`} key={link.path}><Link className={`${pathName === link.path && "text-white font-semibold"} text-base text-secondary block` } href={link.path}>{link.title}</Link></li>)
+                                links.map(link => <li className={`${pathName === link.path ? "bg-secondary border-b-0" : "border-b-2"} px-6 py-1.5`} key={link.path}><Link className={`${pathName === link.path && "text-white font-semibold"} text-base text-secondary block hover:text-white` } href={link.path}>{link.title}</Link></li>)
                             }
                         </ul>
 
-                        <div className="bg-secondary">
+                        <div className="bg-white">
                             <Link
                                 href={"/"}
-                                className="ps-5 text-white py-3 hover:opacity-95 flex items-center justify-start gap-2"
+                                className="ps-5 text-secondary py-3 hover:opacity-95 flex items-center justify-start gap-2 hover:text-primary"
                             >
                                 {" "}
                                 <IoMdArrowBack size={20} />
