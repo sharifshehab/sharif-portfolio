@@ -8,7 +8,6 @@ import { cookies } from "next/headers"
 export const getProjects = async (limit?: number) => {
     const url = limit ? `${process.env.NEXT_PUBLIC_API_URL}/project/projects?limit=${limit}` : `${process.env.NEXT_PUBLIC_API_URL}/project/projects`
 
-
     const res = await fetch(url, { next: { tags: ["PROJECTS"] } })
 
     if (!res.ok) {
@@ -26,7 +25,7 @@ export const addProject = async (formData: any) => {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/project/projects`, {
             method: "POST",
             headers: {
-                Authorization: `Bearer ${token}`
+                Authorization: `${token}`
             },
             body: formData,
         })
@@ -47,14 +46,15 @@ export const updateProject = async (id: string, formData: any) => {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/project/${id}`, {
             method: "PATCH",
             headers: {
-                Authorization: `Bearer ${token}`
+                Authorization: `${token}`
             },
             body: formData,
 
         })
         const data = await res.json()
         if (data?.success) {
-            revalidateTag("PROJECTS")
+            revalidateTag("PROJECTS");
+            revalidateTag("SINGLEPROJECT");
         }
         return data
     } catch (error) {
@@ -69,7 +69,7 @@ export const deleteProject = async (id: string) => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/project/${id}`, {
         method: "DELETE",
         headers: {
-            Authorization: `Bearer ${token}`
+            Authorization: `${token}`
         },
     })
     const data = await res.json()

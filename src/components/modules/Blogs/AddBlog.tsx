@@ -78,6 +78,7 @@ const AddBlog = () => {
                 }
             });
             const result = await addBlog(formData);
+
             if (result.success) {
                 form.reset();
                 toast.success("Blog added successfully.", {

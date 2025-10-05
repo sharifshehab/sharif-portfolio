@@ -63,8 +63,8 @@ const Login = () => {
 
             if (!res.ok) {
                 const errorText = await res.text();
-                const match = errorText.match(/Error:\s*(.+?)<br>/);
-                const errorMessage = match ? match[1] : "Something went wrong";
+                const match = errorText.match(/<pre[^>]*>([\s\S]*?)<\/pre>/i);
+                const errorMessage = match ? match[1].trim() : "Something went wrong";
                 toast.error(errorMessage, {
                     style: {
                         background: "#ff5e14",

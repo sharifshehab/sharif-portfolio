@@ -23,13 +23,14 @@ export const addBlog = async (formData: any) => {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blog/blogs`, {
             method: "POST",
             headers: {
-                Authorization: `Bearer ${token}`
+                Authorization: `${token}`
             },
             body: formData,
         })
         const data = await res.json()
         if (data.success) {
-            revalidateTag("BLOGS")
+            revalidateTag("BLOGS");
+            revalidateTag("SINGLEPOST");
         }
         return data
     } catch (error) {
@@ -44,7 +45,7 @@ export const updateBlog = async (id: string, formData: any) => {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blog/${id}`, {
             method: "PATCH",
             headers: {
-                Authorization: `Bearer ${token}`
+                Authorization: `${token}`
             },
             body: formData,
         })
@@ -64,7 +65,7 @@ export const deleteBlog = async (id: string) => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blog/${id}`, {
         method: "DELETE",
         headers: {
-            Authorization: `Bearer ${token}`
+            Authorization: `${token}`
         },
     })
     const data = await res.json()

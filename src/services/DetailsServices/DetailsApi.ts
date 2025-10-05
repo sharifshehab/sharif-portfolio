@@ -18,7 +18,7 @@ export const addDetails = async (formData: any) => {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/detail/details`, {
             method: "POST",
             headers: {
-                Authorization: `Bearer ${token}`,
+                Authorization: `${token}`,
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(formData),
@@ -40,7 +40,7 @@ export const updateDetails = async (id: string, formData: any) => {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/detail/${id}`, {
             method: "PATCH",
             headers: {
-                Authorization: `Bearer ${token}`,
+                Authorization: `${token}`,
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(formData),
